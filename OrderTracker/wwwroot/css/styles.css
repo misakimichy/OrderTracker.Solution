@@ -32,12 +32,27 @@ h1, p {
 }
 
 .btn {
-    min-width: 400px;
+    min-width: 300px;
 }
 
-.submit-btn {
+.submit-button {
     display: block;
     margin: 0 auto;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 20rem;
+    margin: 0 2rem 2rem 0;
+    align-self: stretch;
+}
+
+.card-title {
+    text-align: center;
 }
 
 footer {

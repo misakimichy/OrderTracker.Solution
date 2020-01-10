@@ -8,8 +8,23 @@
 {
     <p>There are no vendors added.</p>
 }
+else
+{
+    <div class="card-container">
+    @foreach (Vendor vendor in Model)
+    {
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">@vendor.Name</h5>
+                <p class="card-text">@vendor.Description</p>
+                <p><a href="#" >See order</a></p>
+            </div>
+        </div>
+    }
+    </div>
+}
 
 <div class="button-container">
-    <a href="/vendors/new"><button class="btn btn-info">Add Vendors</button></a>
-    <a href="/"><button class="btn btn-info">Back Home</button></a>
+    <a class="btn btn-info" href="/vendors/new">Add Vendors</a>
+    <a class="btn btn-info" href="/">Back Home</a>
 </div>
