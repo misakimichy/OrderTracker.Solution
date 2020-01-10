@@ -4,19 +4,19 @@
 @using VendorTracker.Models;
 
 <h1>Order list for @Model["vendor"].Name</h1>
-@if(@Model["order"].Count == 0)
+@if(@Model["orders"].Count == 0)
 {
     <h5>No orders have been added yet!</h5>
 }
 
 <ul>
-    @foreach(Order order in @Model["orders"])
-    {
-        <li>
-            <a href='/vendors/@Model["vendor"].Id/orders/@order.Id'>@order.Description</a>
-        </li>
-    }
+@foreach(Order order in @Model["orders"])
+{
+    <li>
+        <a href='/vendors/@Model["vendor"].Id/'>@order.Description</a>
+    </li>
+}
 </ul>
 
 <a class="btn btn-info" href="/vendors/">Back to Venors List</a>
-<a class="btn btn-info" href="/">Back Home</a>
+<a class="btn btn-secondary" href="/">Back Home</a>
