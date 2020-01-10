@@ -114,5 +114,15 @@ namespace VendorTracker.Tests
 
             CollectionAssert.AreEqual(newList, result);
         }
+
+        [TestMethod]
+        public void Find_ReturnsCorrectVendor_Vendor()
+        {
+            Order newOrder1 = new Order("Baguette", "This is test.", 5.5, new DateTime(2020, 01, 01));
+            Order newOrder2 = new Order("Croissant", "This is test2!", 10.5, new DateTime(2020, 01, 20));
+            Order result = Order.Find(2);
+
+            Assert.AreEqual(newOrder2, result);
+        }
     }
 }

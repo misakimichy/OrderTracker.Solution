@@ -10,6 +10,7 @@ namespace VendorTracker.Models
         public double Price { get; set; }
         public DateTime Date;
         private static List<Order> _instances = new List<Order> {};
+        public int Id { get; }
 
         public Order (string title, string description, double price, DateTime date)
         {
@@ -18,6 +19,7 @@ namespace VendorTracker.Models
             Price = price;
             Date = date;
             _instances.Add(this);
+            Id = _instances.Count;
         }
 
         public static List<Order> GetAll()
@@ -27,6 +29,11 @@ namespace VendorTracker.Models
         public static void ClearAll()
         {
             _instances.Clear();
+        }
+
+        public static Order Find(int searchId)
+        {
+            return _instances[searchId - 1];
         }
     }
 }
