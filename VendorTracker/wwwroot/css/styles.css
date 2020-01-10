@@ -24,15 +24,9 @@ h1, p {
     width: 100%;
 }
 
-.button-container {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
 .btn {
     min-width: 300px;
+    margin-bottom: 2rem;
 }
 
 .submit-button {
