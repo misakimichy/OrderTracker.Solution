@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using OrderTracker.Models;
+using VendorTracker.Models;
 
-namespace OrderTracker.Controllers
+namespace VendorTracker.Controllers
 {
     public class VendorController : Controller
     {
@@ -17,6 +17,18 @@ namespace OrderTracker.Controllers
         public ActionResult New()
         {
             return View();
+        }
+
+        [HttpGet("/vendors/{id}")]
+        public ActionResult Show(int id)
+        {
+            // This dictionary has a vendor name and a order object
+            Dictionary<string, object> dict = new Dictionary<string, object>();
+            Vendor selectedVendor = Vendor.Find(id);
+            List<Order> vendorOrder = selectedVendor.Orders;
+            dict.Add("Vendor", selectedVendor);
+            dict.Add("Orders", vendorOrder);
+            return View(dict);
         }
 
         [HttpPost("/vendors")]

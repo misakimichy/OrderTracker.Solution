@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace OrderTracker.Models
+namespace VendorTracker.Models
 {
     public class Vendor
     {
