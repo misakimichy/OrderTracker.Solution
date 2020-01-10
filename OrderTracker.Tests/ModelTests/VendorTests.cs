@@ -1,15 +1,17 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 using OrderTracker.Models;
 
 namespace OrderTracker.Tests
 {
     [TestClass]
-    public class OrderTrackerTest
+    public class VendorTest
     {
         [TestMethod]
-        public void MethodName_DescriptionOfBehavior_ExpectedResult()
+        public void VendorConstructor_CreateInstanceOfVendor_Vendor()
         {
-            //Test Code
+            Vendor newVendor = new Vendor("bakery", "We are bakery");
+            Assert.AreEqual(typeof(Vendor), newVendor.GetType());
         }
  
     }
