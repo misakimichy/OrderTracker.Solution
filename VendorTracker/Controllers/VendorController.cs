@@ -32,6 +32,17 @@ namespace VendorTracker.Controllers
             return View(dict);
         }
 
+        [HttpGet("/vendors/{vendorId}/delete")]
+        public ActionResult Delete(int vendorId)
+        {
+            Dictionary<string, object> dict = new Dictionary<string, object>();
+            Vendor selectedVendor = Vendor.Find(vendorId);
+            List<Order> vendorOrder = selectedVendor.Orders;
+            dict.Add("vendor", selectedVendor);
+            dict.Add("orders", vendorOrder);
+            return View(dict);
+        }
+
         [HttpPost("/vendors")]
         public ActionResult Create(string name, string description)
         {
@@ -50,6 +61,18 @@ namespace VendorTracker.Controllers
             dict.Add("orders", vendorOrders);
             dict.Add("vendor", selectedVendor);
             return View("Show", dict);
+        }
+
+        [HttpPost("/vendors/{vendorId}/delete")]
+        public ActionResult DeleteVendor(int vendorId)
+        {
+            Dictionary<string, object> dict = new Dictionary<string, object>();
+            Vendor selectedVendor = Vendor.Find(vendorId);
+            List<Order> vendorOrder = selectedVendor.Orders;
+            dict.Add("vendor", selectedVendor);
+            dict.Add("orders", vendorOrder);
+            Vendor.DeleteVendor(vendorId);
+            return RedirectToAction("Index");
         }
     }
 }

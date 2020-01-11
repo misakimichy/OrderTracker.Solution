@@ -1,0 +1,15 @@
+@{
+    Layout = "_Layout";
+}
+@using VendorTracker.Models;
+
+<h1>Are you sure you want to delete @Model["vendor"].Name?</h1>
+
+<div class="container">
+    <form action='/vendors/@Model["vendor"].Id/delete' method="post">
+        <button class="btn btn-danger" type="submit">Delete This Vendor</button>
+    </form>
+</div>
+
+<a class="btn btn-info" href="/vendors/">Back to Vendor List</a>
+<a class="btn btn-secondary" href="/">Back Home</a>
