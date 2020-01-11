@@ -9,14 +9,18 @@
     <h5>No orders have been added yet!</h5>
 }
 
-<ul>
+<div class="card-container">
 @foreach(Order order in @Model["orders"])
 {
-    <li>
-        <a href='/vendors/@Model["vendor"].Id/orders/@order.Id'>@order.Title</a>
-    </li>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">@order.Title</h5>
+            <p class="card-text">@order.Date</p>
+            <p><a href='/vendors/@Model["vendor"].Id/orders/@order.Id' >See details</a></p>
+        </div>
+    </div>
 }
-</ul>
+</div>
 
 <a class="btn btn-info" href='/vendors/@Model["vendor"].Id/orders/new'>Add Order for @Model["vendor"].Name</a>
 <a class="btn btn-info" href="/vendors/">Back to Vendor List</a>
