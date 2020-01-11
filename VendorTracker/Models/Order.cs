@@ -8,7 +8,7 @@ namespace VendorTracker.Models
         public string Title { get; set; }
         public string Description { get; set; }
         public double Price { get; set; }
-        public DateTime Date;
+        private DateTime _date;
         private static List<Order> _instances = new List<Order> {};
         public int Id { get; }
 
@@ -17,7 +17,7 @@ namespace VendorTracker.Models
             Title = title;
             Description = description;
             Price = price;
-            Date = date;
+            _date = date;
             _instances.Add(this);
             Id = _instances.Count;
         }
@@ -34,6 +34,16 @@ namespace VendorTracker.Models
         public static Order Find(int searchId)
         {
             return _instances[searchId - 1];
+        }
+
+        public string GetDate()
+        {
+            return _date.ToString("MMMM dd, yyyy");
+        }
+
+        public void SetDate(DateTime new_date)
+        {
+            _date = new_date;
         }
     }
 }

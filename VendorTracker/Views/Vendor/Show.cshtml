@@ -15,8 +15,8 @@
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">@order.Title</h5>
-            <p class="card-text">@order.Date</p>
-            <p><a href='/vendors/@Model["vendor"].Id/orders/@order.Id' >See details</a></p>
+            <p class="card-text">@order.GetDate()</p>
+            <p><a href='/vendors/@Model["vendor"].Id/orders/@order.Id' >See order details</a></p>
         </div>
     </div>
 }

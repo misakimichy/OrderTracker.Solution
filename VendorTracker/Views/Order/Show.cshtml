@@ -9,8 +9,8 @@
     <div class="card-body">
         <h5 class="card-title">Order title: @Model["order"].Title</h5>
         <p class="card-text">Order description: @Model["order"].Description</p>
-        <p class="card-text">Order price: @Model["order"].Price</p>
-        <p class="card-text">Order date: @Model["order"].Date</p>
+        <p class="card-text">Order price: $@Model["order"].Price</p>
+        <p class="card-text">Order date: @Model["order"].GetDate()</p>
     </div>
     </div>
 </div>
