@@ -20,6 +20,8 @@ Pierre's Bakery was satisfied with the great [console application](https://githu
 
 - Pierre can delete a `Vendor` when he clicks the delete button. It will jump to the confirm screen for deleting. Once Pierre agrees deleting the `Vendor` and click the button, the selected vendor will be deleted from the new page.
 
+- Pierre also can delete an each `Order` when he clicks the delete item button. It will jump to the confirm screen for deleting. Once Pierre agrees deleting the `Order` and click the button, the selected order will be deleted from the new page.
+
 
 ## Installation:
 1. Clone this repo:
