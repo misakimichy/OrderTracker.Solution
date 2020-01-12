@@ -45,6 +45,7 @@ namespace VendorTracker.Controllers
             dict.Add("order", order);
             dict.Add("vendor", selectedVendor);
             Order.DeleteItem(orderId);
+            // Redirect to /vendor/{vendirId} page, which locates in VendorController
             return RedirectToAction("Show", "Vendor");
         }
     }
