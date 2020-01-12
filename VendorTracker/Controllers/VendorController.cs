@@ -23,12 +23,11 @@ namespace VendorTracker.Controllers
         [HttpGet("/vendors/{vendorId}")]
         public ActionResult Show(int vendorId)
         {
-            // This dictionary has a vendor name and a order object
             Dictionary<string, object> dict = new Dictionary<string, object>();
             Vendor selectedVendor = Vendor.Find(vendorId);
-            List<Order> vendorOrder = selectedVendor.Orders;
+            List<Order> allOrders = Order.GetAll();
             dict.Add("vendor", selectedVendor);
-            dict.Add("orders", vendorOrder);
+            dict.Add("orders", allOrders);
             return View(dict);
         }
 
@@ -56,7 +55,7 @@ namespace VendorTracker.Controllers
             Vendor selectedVendor = Vendor.Find(vendorId);
             Order newOrder = new Order(orderTitle, orderDescription, orderPrice, orderDate);
             selectedVendor.AddOrder(newOrder);
-            List<Order> vendorOrders = selectedVendor.Orders;
+            List<Order> vendorOrders = Order.GetAll();
             Dictionary<string, object> dict = new Dictionary<string, object>();
             dict.Add("orders", vendorOrders);
             dict.Add("vendor", selectedVendor);
