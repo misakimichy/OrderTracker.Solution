@@ -88,9 +88,9 @@ namespace VendorTracker.Tests
         {
             DateTime date = new DateTime(2020, 01, 01);
             Order newOrder = new Order("Baguette", "This is test.", 5.5, date);
-            DateTime result = newOrder.Date;
+            string result = newOrder.GetDate();
 
-            Assert.AreEqual(date, result);
+            Assert.AreEqual("January 01 2020", result);
         }
 
         [TestMethod]
@@ -98,10 +98,10 @@ namespace VendorTracker.Tests
         {
             Order newOrder = new Order("Baguette", "This is test.", 5.5, new DateTime(2020, 01, 01));
             DateTime updatedDate = new DateTime(2020, 01, 20);
-            newOrder.Date = updatedDate;
-            DateTime result = newOrder.Date;
+            newOrder.SetDate(updatedDate);
+            string result = newOrder.GetDate();
 
-            Assert.AreEqual(updatedDate, result);
+            Assert.AreEqual("January 20 2020", result);
         }
 
         [TestMethod]
