@@ -1,0 +1,18 @@
+@{
+    Layout = "_Layout";
+}
+@using VendorTracker.Models;
+@Html.ActionLink("linkText","VendorController")
+
+<h1>Are you sure you want to delete @Model["order"].Title?</h1>
+
+<div class="container">
+    <form action='/vendors/@Model["vendor"].Id/orders/@Model["order"].Id/delete' method="post">
+        <button class="btn btn-danger" type="submit">Delete This Item</button>
+    </form>
+</div>
+
+<a class="btn btn-info" href='/vendors/@Model["vendor"].Id'>Back to Item List</a>
+<a class="btn btn-secondary" href="/">Back Home</a>
+
+ @* onclick="window.location.href('@Url.Action("Show", "VendorController")')" *@
